@@ -1,0 +1,87 @@
+{
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio#volume",
+        "pulseaudio#mic",
+        "network",
+        "battery",
+        "cpu",
+        "memory",
+        "backlight",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "default": "",
+        "active": ""
+    }
+},
+    "hyprland/window": {
+        "format": " {}",
+        "separate-outputs": true
+},
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
+    "pulseaudio#volume": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },"style-file": "~/.config/waybar/style.css",
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰤮 Disconnected"
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": " {percent}%"
+    },
+    "clock": {
+        "format": " {:%I:%M %p}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    }
+}

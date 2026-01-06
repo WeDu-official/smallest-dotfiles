@@ -1,0 +1,75 @@
+/*
+ * General Waybar styling and layout.
+ * Colors are based on a common dark theme palette.
+ */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Fira Code Nerd Font", "JetBrainsMono Nerd Font", "sans-serif";
+  font-size: 13px;
+  /* Adjust this to add more space between the bar and the screen edge */
+  padding: 0;
+  margin: 0;
+}
+
+#waybar {
+background: rgba(18, 18, 25, 0.7); /* A dark, slightly purplish black with 70% opacity */
+color: #cdd6f4;
+border-bottom: 2px solid #575268;
+border-radius: 10px;
+margin: 5px;
+}
+
+/* ------------------------------------------- */
+/* --- Individual Module Styling --- */
+/* ------------------------------------------- */
+
+/* Modules Container */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0 5px;
+}
+
+/* Workspaces Module */
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #cdd6f4;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  background: rgba(147, 137, 186, 0.2);
+}
+
+#workspaces button.active {
+  background: #a6e3a1; /* Active workspace background color */
+  color: #1e1e2e;
+}
+
+#workspaces button.urgent {
+  background: #f38ba8; /* Urgent workspace color */
+  color: #1e1e2e;
+}
+
+/* All other info modules */
+#clock, #battery, #cpu, #memory, #pulseaudio, #network, #backlight, #tray {
+  /* Add padding to fix the overlapping issue */
+  padding: 0 10px; 
+}
+
+/* Tray Icons */
+#tray {
+  background: rgba(69, 58, 89, 0.5);
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+/* Tooltip (when you hover over a module) */
+#tooltip {
+  background: rgba(30, 30, 46, 0.8);
+  border: 1px solid #575268;
+  border-radius: 10px;
+}
