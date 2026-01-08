@@ -13,5 +13,5 @@ y_offset=$2
 interval=$3
 
 # Start the continuous movement script in the background
-~/.config/hypr/scripts/continuous_cursor_move.sh "$x_offset" "$y_offset" "$interval" &
+$HOME/.config/hypr/scripts/continuous_cursor_move.sh "$x_offset" "$y_offset" "$interval" &
 echo $! > /tmp/mouse_move_pid

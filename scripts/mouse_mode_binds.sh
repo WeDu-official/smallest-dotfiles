@@ -10,13 +10,13 @@ if [ -f "$TOGGLE_FILE" ]; then
 
 case "$1" in
 
-"Arrow_Up") ~/.config/hypr/scripts/move_cursor_rel.sh 0 5 ;;
+"Arrow_Up") $HOME/.config/hypr/scripts/move_cursor_rel.sh 0 5 ;;
 
-"Arrow_Down") ~/.config/hypr/scripts/move_cursor_rel.sh 0 -5 ;;
+"Arrow_Down") $HOME/.config/hypr/scripts/move_cursor_rel.sh 0 -5 ;;
 
-"Arrow_Left") ~/.config/hypr/scripts/move_cursor_rel.sh -5 0 ;;
+"Arrow_Left") $HOME/.config/hypr/scripts/move_cursor_rel.sh -5 0 ;;
 
-"Arrow_Right") ~/.config/hypr/scripts/move_cursor_rel.sh 5 0 ;;
+"Arrow_Right") $HOME/.config/hypr/scripts/move_cursor_rel.sh 5 0 ;;
 
 "Delete") echo "click left" | dotool ;;
 
