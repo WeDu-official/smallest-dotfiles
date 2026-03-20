@@ -15,21 +15,21 @@
         "clock"
     ],
     "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "default": "",
-        "active": ""
-    }
-},
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "default": "",
+            "active": ""
+        }
+    },
     "hyprland/window": {
         "format": " {}",
         "separate-outputs": true
-},
+    },
     "tray": {
         "icon-size": 16,
         "spacing": 5
@@ -52,7 +52,8 @@
         "format-source": " {volume}%",
         "format-source-muted": " Muted",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-    },"style-file": "~/.config/waybar/style.css",
+    },
+    "style-file": "~/.config/waybar/style.css",
     "network": {
         "format-wifi": " {signalStrength}%",
         "format-ethernet": "󰈀 {ifname}",
@@ -82,6 +83,7 @@
     },
     "clock": {
         "format": " {:%I:%M %p}",
-        "tooltip-format": "{:%A, %B %d, %Y}"
+        "tooltip-format": "{:%A, %B %d, %Y}",
+        "on-click": "$HOME/.config/waybar/show_calendar.sh"
     }
 }

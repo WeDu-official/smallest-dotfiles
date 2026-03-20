@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Configuration ---
-FILE="~/.config/hypr/antoc.txt"
+FILE="$HOME/.config/hypr/antoc.txt"
 DECREMENT=0.05
 MIN_VALUE=0.00
 HYPR_VAR="decoration:active_opacity"
