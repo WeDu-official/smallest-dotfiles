@@ -11,7 +11,7 @@ fi
 
 # Check if video wallpaper tool is installed
 # Using mpvpaper as an example (you can change this to your preferred video wallpaper tool)
-if ! command -v mpvpaper &> /dev/null && ! command -v swww &> /dev/null; then
+if ! command -v mpvpaper &> /dev/null; then
     dunstify -u critical "Error" "No video wallpaper tool found. Please install mpvpaper or swww."
     exit 1
 fi
@@ -52,31 +52,7 @@ if [ -n "$SELECTED_WALLPAPER" ] && [ -f "$SELECTED_WALLPAPER" ]; then
     # The path is valid, update the wallpaper variable file
     echo "$SELECTED_WALLPAPER" > "$WALLPAPER_VAR_FILE"
 
-    # Apply the new video wallpaper
-    # Try mpvpaper first, then fall back to swww if available
-    if command -v mpvpaper &> /dev/null; then
-        # Stop any existing mpvpaper instances
-        pkill mpvpaper 2>/dev/null
-
-        # Get monitor names (adjust this based on your setup)
-        MONITORS=$(hyprctl monitors | grep -o "Monitor [^ ]*" | cut -d' ' -f2)
-
-        # Apply to all monitors
-        for MONITOR in $MONITORS; do
-            mpvpaper -o "loop-file=inf" "$MONITOR" "$SELECTED_WALLPAPER" &
-        done
-
-        dunstify "Video Wallpaper Updated" "New video wallpaper has been set and saved."
-
-    elif command -v swww &> /dev/null; then
-        # swww can handle videos if built with video support
-        swww img "$SELECTED_WALLPAPER" --transition-type any
-
-        dunstify "Video Wallpaper Updated" "New video wallpaper has been set and saved."
-    else
-        dunstify -u critical "Error" "No compatible video wallpaper tool found."
-        exit 1
-    fi
+    dunstify "Video Wallpaper Updated" "New video wallpaper has been saved and can be set."
 
 else
     # The user canceled the selection or the path is invalid
