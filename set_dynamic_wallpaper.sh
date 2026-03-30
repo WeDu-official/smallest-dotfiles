@@ -36,19 +36,19 @@ SELECTED_WALLPAPER=$(zenity --file-selection \
     --title="Select a Video Wallpaper" \
     --filename="$CURRENT_WALLPAPER_DIR/" \
     --file-filter="Video files | *.mp4 *.mkv *.avi *.mov *.wmv *.flv *.webm *.m4v *.mpg *.mpeg" \
+    --file-filter="Image files | *.jpg *.jpeg *.png *.gif *.bmp *.webp *.tiff *.svg" \
     --file-filter="MP4 files | *.mp4" \
     --file-filter="WebM files | *.webm" \
     --file-filter="MKV files | *.mkv" \
+    --file-filter="JPEG files | *.jpg *.jpeg" \
+    --file-filter="PNG files | *.png" \
+    --file-filter="GIF files | *.gif" \
+    --file-filter="WebP files | *.webp" \
+    --file-filter="SVG files | *.svg" \
     --file-filter="All files | *")
 
 # Check if a file was selected and the dialog wasn't canceled
 if [ -n "$SELECTED_WALLPAPER" ] && [ -f "$SELECTED_WALLPAPER" ]; then
-    # Check if it's actually a video file (optional)
-    if ! file -b --mime-type "$SELECTED_WALLPAPER" | grep -q "^video/"; then
-        dunstify -u critical "Invalid File" "Selected file is not a video. Please select a video file."
-        exit 1
-    fi
-
     # The path is valid, update the wallpaper variable file
     echo "$SELECTED_WALLPAPER" > "$WALLPAPER_VAR_FILE"
 
